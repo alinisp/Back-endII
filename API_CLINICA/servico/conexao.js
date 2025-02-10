@@ -1,10 +1,18 @@
-import mysql from 'mysql2/promise';
+const mysql = require('mysql2');
 
-const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'apclinica',
-    password: 'clinica123',
-    database: 'clinica'
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'apclinica', 
+  password: 'clinica123', 
+  database: 'clinica'
 });
 
-export default pool;
+connection.connect((err) => {
+  if (err) {
+    console.error('Erro ao conectar ao banco de dados:', err);
+    return;
+  }
+  console.log('Sucesso ao acessar o Banco de Dados!');
+});
+
+module.exports = connection;
