@@ -1,3 +1,5 @@
+//Para a pesquisa por nome = adicione localhost:9000/medicos/nome?nome=
+
 const express = require('express');
 const { retornaMedicos, retornaMedicosNome, retornaMedicosEspecialidade, retornaMedicosId } = require('./servico/retornaMedicos_servico.js');
 
