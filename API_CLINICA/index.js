@@ -18,6 +18,7 @@ app.get('/medicos', async (req, res) => {
     }
 });
 
+//Para a pesquisa por nome use a URL localhost:9000/medicos/nome?nome=[nome]
 app.get('/medicos/nome', async (req, res) => {
     const { nome } = req.query;
 
@@ -34,7 +35,7 @@ app.get('/medicos/nome', async (req, res) => {
     }
 });
 
-
+//Para a pesquisa por especialidade use a URL localhost:9000/medicos/especialidade?especialidade=[especialidade]
 app.get('/medicos/especialidade', async (req, res) => {
     const { especialidade } = req.query;
 
