@@ -1,14 +1,54 @@
+import cors from 'cors';
 import express from 'express';
 // import pool from './servico/conexao.js';
 import { retornaCampeonatos, retornaCampeonatosID, retornaCampeonatosAno, retornaCampeonatosTime } from './servico/retornaCampeonatos_servico.js';
 // import { retornaCampeonatosID } from './servico/retornaCampeonatos_servico.js';
 // import { retornaCampeonatosAno } from './servico/retornaCampeonatos_servico.js';
 // import { retornaCampeonatosTime } from './servico/retornaCampeonatos_servico.js';
-import { cadastraCampeonatos} from './servico/cadastroCampeonatoServico.js';
+import { cadastraCampeonatos } from './servico/cadastroCampeonatoServico.js';
+import { atualizaCampeonato, atualizaCampeonatoParcial } from './servico/atualizaCampeonato_servico.js';
 
 
 const app = express();
+app.use(cors());
 app.use(express.json()); //Suporte 
+
+app.patch('/campeonatos/:id', async (req, res) =>{
+    const {id} = req.params;
+    const {campeao, vice, ano} = req.body;
+    
+    const camposAtualizar = {};
+    if(campeao) camposAtualizar.campeao = campeao;
+    if(vice) camposAtualizar.vice = vice;
+    if(ano) camposAtualizar.ano = ano;
+    
+    if (Object.keys(camposAtualizar).length ===0) {
+        res.status(400).send("Nenhum campo válido foi enviado para a atualização!")
+    } else {
+        const resultado = await atualizaCampeonatoParcial(id, camposAtualizar)
+        if (resultado.affectedRows > 0) {
+            res.status(202).send("Registro atualizado com sucesso!");
+        } else {
+            res.status(400).send("Registro não encontrado!");
+        }
+    }
+})
+
+app.put('/campeonatos/:id', async (req, res) => {
+    const{id} = req.params;
+    const {campeao, vice, ano} = req.body;
+
+    if (campeao == undefined || vice == undefined || ano == undefined) {
+        res.status(400).send('Todos os campos devem ser preenchidos!')
+    } else {
+        const resultado = await atualizaCampeonato(id, campeao, vice, ano);
+        if (resultado.affectedRows > 0) {
+            res.status(202).send('Registro atualido com sucesso!');
+        } else {
+            res.status(400).send('Registro não encontrado!');
+        }
+    }
+})
 
 app.post('/campeonatos', async (req, res) => {
     const campeao = req.body.campeao;
@@ -41,17 +81,6 @@ app.get('/campeonatos', async (req, res) => {
     
 })
 
-app.listen(9000, () => {
-    const data = new Date();
-    console.log("Servidor node iniciado em: "+data);
-
-    // const conexao = await pool.getConnection();
-
-    // console.log(conexao.threadId);
-
-    // conexao.release();
-})
-
 app.get('/campeonatos/:id', async (req, res) => {
     const id = parseInt(req.params.id);
     const campeonato = await retornaCampeonatosID(id);
@@ -60,5 +89,12 @@ app.get('/campeonatos/:id', async (req, res) => {
     } else {
         res.status(404).json({ mensagem: "Nenhum campeonato encontrado"});
     }
-    
 });
+
+app.listen(9000, () => {
+    const data = new Date();
+    console.log("Servidor node iniciado em: "+data);
+    // const conexao = await pool.getConnection();
+    // console.log(conexao.threadId);
+    // conexao.release();
+})
