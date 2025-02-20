@@ -1,196 +1,67 @@
+html, body {
+    height: 100%; 
+    margin: 0; 
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Fundo preto */
-    color: #e0e0e0; /* Texto cinza claro */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Altura total da viewport */
+    background-color: #000000;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .container {
-    max-width: 600px; /* Reduzindo a largura máxima para 600px */
-    background: #2c2c2c; /* Fundo cinza escuro */
-    padding: 40px; /* Padding para dar mais espaço interno */
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    min-height: 400px; /* Altura mínima para a div do formulário */
+    width: 100%; 
+    max-width: 500px; 
+    padding: 20px;
+    background-color: #380246;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+h1 {
     text-align: center;
-    color: #9b59b6; /* Roxo */
+    color: #ffffff;
 }
 
 .form-group {
     margin-bottom: 15px;
 }
 
-.form-group label {
+label {
     display: block;
     margin-bottom: 5px;
+    color: #ffffff;
 }
 
-.form-group input, 
-.form-group textarea {
-    width: calc(100% - 20px); /* Ajusta a largura para compensar o padding */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #444; /* Bordas cinza escuro */
+    border: 1px solid #000000;
     border-radius: 4px;
-    background-color: #333; /* Fundo dos campos */
-    color: #e0e0e0; /* Texto dos campos */
-    margin: 0; /* Remove margens adicionais */
+    box-sizing: border-box;
 }
 
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: #9b59b6; /* Bordas roxas ao focar */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    border-color: #7d7777;
     outline: none;
 }
 
-.form-group button {
-    background-color: #9b59b6; /* Botão roxo */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%; /* Botão ocupa toda a largura */
-}
-
-.form-group button:hover {
-    background-color: #8e44ad; /* Roxo mais escuro ao passar o mouse */
-}body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Fundo preto */
-    color: #e0e0e0; /* Texto cinza claro */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Altura total da viewport */
-}
-
-.container {
-    max-width: 600px; /* Reduzindo a largura máxima para 600px */
-    background: #2c2c2c; /* Fundo cinza escuro */
-    padding: 40px; /* Padding para dar mais espaço interno */
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    min-height: 400px; /* Altura mínima para a div do formulário */
-}
-
-h2 {
-    text-align: center;
-    color: #9b59b6; /* Roxo */
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: calc(100% - 20px); /* Ajusta a largura para compensar o padding */
+button {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #444; /* Bordas cinza escuro */
-    border-radius: 4px;
-    background-color: #333; /* Fundo dos campos */
-    color: #e0e0e0; /* Texto dos campos */
-    margin: 0; /* Remove margens adicionais */
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: #9b59b6; /* Bordas roxas ao focar */
-    outline: none;
-}
-
-.form-group button {
-    background-color: #9b59b6; /* Botão roxo */
+    background-color: #7d7777;
     color: white;
-    padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%; /* Botão ocupa toda a largura */
 }
 
-.form-group button:hover {
-    background-color: #8e44ad; /* Roxo mais escuro ao passar o mouse */
-}body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Fundo preto */
-    color: #e0e0e0; /* Texto cinza claro */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Altura total da viewport */
-}
-
-.container {
-    max-width: 600px; /* Reduzindo a largura máxima para 600px */
-    background: #2c2c2c; /* Fundo cinza escuro */
-    padding: 40px; /* Padding para dar mais espaço interno */
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    min-height: 400px; /* Altura mínima para a div do formulário */
-}
-
-h2 {
-    text-align: center;
-    color: #9b59b6; /* Roxo */
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input, 
-.form-group textarea {
-    width: calc(100% - 20px); /* Ajusta a largura para compensar o padding */
-    padding: 10px;
-    border: 1px solid #444; /* Bordas cinza escuro */
-    border-radius: 4px;
-    background-color: #333; /* Fundo dos campos */
-    color: #e0e0e0; /* Texto dos campos */
-    margin: 0; /* Remove margens adicionais */
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    border-color: #9b59b6; /* Bordas roxas ao focar */
-    outline: none;
-}
-
-.form-group button {
-    background-color: #9b59b6; /* Botão roxo */
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%; /* Botão ocupa toda a largura */
-}
-
-.form-group button:hover {
-    background-color: #37064d; /* Roxo mais escuro ao passar o mouse */
+button:hover {
+    background-color: #833da6;
 }
