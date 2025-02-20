@@ -15,7 +15,7 @@ app.post('/usuarios', async (req, res) => {
     }
 });
 
-const PORT = 3000;
+const PORT = 9000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
